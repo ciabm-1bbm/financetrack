@@ -25,11 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-        
+
       - name: Install dependencies
+        working-directory: ./financetrack
         run: npm install
 
       - name: Build
+        working-directory: ./financetrack
         run: npm run build
 
       - name: Setup Pages
@@ -38,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './financetrack/dist'
 
   deploy:
     environment:
